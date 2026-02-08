@@ -10,7 +10,7 @@ public :
     void area();
 
 };
-int j,k;
+int j,k,last=0;
 
 void Rectangle::change()
 {
@@ -18,14 +18,14 @@ void Rectangle::change()
     cin>>l;
     cout<<"enter b:";
     cin>>b;
-
+    last++;
 }
 
 void  Rectangle::area()
 {
 
     cout<<"area:"<<l*b<<endl;
-    cout<<"perimeter:"<<2*(l+b);
+    cout<<"perimeter:"<<2*(l+b)<<endl;
 
 }
 
@@ -33,9 +33,9 @@ void  Rectangle::area()
 
 int main()
 {
-    int ch,index;
-    Rectangle c[2];
-    int last=0;
+    int ch,index=0;
+    Rectangle c[1];
+   // int last=0;
   c[last].change();
 m:
 
@@ -47,11 +47,19 @@ m:
     switch(ch)
     {
     case 1:
-        cout<<"enter your index";
+        cout<<"enter your index:";
         cin>>index;
+    if(index < last)
 
+    {
         c[index].change();
         goto m;
+    }
+    else
+    {
+        cout<<"this index is not found\n";
+        goto m;
+    }
 
     case 2:
         c[index].area();
@@ -60,12 +68,5 @@ m:
         break ;
     }
 
-    c[0]
-    c[1]
-    x[2] =
-    > error_category
 
-    c[0].change()
-
-    c[0].area
 }
