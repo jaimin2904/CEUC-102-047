@@ -1,4 +1,5 @@
 #include <iostream>
+#include<windows.h>
 using namespace std;
 
 class Student
@@ -10,11 +11,11 @@ private:
 
 public:
 
-    Student()
+  Student()
     {
-        name = "Test";
-        roll = 0;
-        m1 = m2 = m3 = 5;
+        name = "jaimin";
+        roll = 47;
+        m1 = m2 = m3 = 99;
     }
 
     Student(string n, int r, float s1, float s2, float s3)
@@ -30,7 +31,7 @@ public:
     void display()
     {
         float avg = (m1 + m2 + m3) / 3;
-        cout<<"roll:"<<roll;
+        cout<<"\nroll:"<<roll;
         cout<<"\nname:"<<name;
         cout<<"\navg:"<<avg;
 
@@ -41,27 +42,54 @@ int main()
 {
     string name;
     float m1,m2,m3;
-    int id;
+    int id,n,ch;
 
+    cout<<"enter number of studen:";
+    cin>>n;
+
+    cout<<"1.input data\n2.default data";
+    cout<<"enter number\n";
+    cin>>ch;
+
+     Student* records[n];
+
+    switch(ch)
+    {
+   case 1:
+    for(int i=0;i<n;i++)
+    {
     cout<<"enter your name:";
     cin>>name;
 
     cout<<"entre id:";
     cin>>id;
 
-    cout<<"enter marks:";
+    cout<<"enter three subject marks:";
     cin>>m1>>m2>>m3;
 
-    Student records[2] =
-    {
-        Student(),
-        Student(name,id,m1,m2,m3)
-    };
+    records[i]= new Student(name,id,m1,m2,m3);
+    }
 
-    for(int i = 0; i < 2; i++)
+    system("cls");
+
+    for(int i = 0; i<n; i++)
     {
-        records[i].display();
-        cout<<endl;
+         records[i]->display();
+         cout<<endl;
+    }
+
+    case 2:
+    for(int i = 0; i<n; i++)
+    {
+       records[i] = new Student();
+    }
+
+     for(int i = 0; i<n; i++)
+    {
+        records[i]->display();
+         cout<<endl;
+    }
+
     }
     return 0;
 }
