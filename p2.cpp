@@ -57,13 +57,12 @@ int library_system::returnbook(string x)
     }
 }
 
-
-
-
-
-
-
-
+void library_system::disbook()
+{
+    cout << "\nBook Title: " << title;
+    cout << "\nBook ID: " << id;
+    cout << "\nAuthor: " << author << endl;
+}
 
 
 int main()
@@ -92,40 +91,42 @@ m:
         {
             if(c[i].issubook(name)==1)
             {
-                cout<<"your book issued";
+                cout<<"your book issued\n";
                 break;
             }
-            if(c[i].issubook(name)==0)
+        }
+            if(c[last-1].issubook(name)==0)
             {
                 cout<<"book not avalible\n";
             }
-        }
+
         goto m;
     case 3:
-
 
         cout<<"enter book's name:";
         cin>>na;
 
         for(int i=0; i<last; i++)
         {
-            if(c[i].returnbook(name)==1)
+            if(c[i].returnbook(na)==1)
             {
                 cout<<"your book's return";
                 break;
             }
-            if(i==last)
+        }
+            if(c[last-1].returnbook(na)==0)
             {
                 cout<<"book does not exist\n";
             }
-            goto m;
-        }
 
-        /*   case 4:
+
+         goto m;
+
+          case 4:
                for(int i=0;i<last;i++)
                {
                    c[i].disbook();
-               }*/
+               }
 
     }
 }
